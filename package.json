@@ -1,0 +1,15 @@
+{
+  "name": "poster-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server ."
+  },
+  "devDependencies": {
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
+    "live-server": "^1.2.1",
+    "tailwindcss": "^2.0.4"
+  }
+}
