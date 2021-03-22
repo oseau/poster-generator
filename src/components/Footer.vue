@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { isDark, toggleDark } from '~/logics'
+import { useI18n } from "vue-i18n";
+import { isDark, toggleDark } from "~/logics";
 
-const { t, availableLocales, locale } = useI18n()
+const { t, availableLocales, locale } = useI18n();
 
 const toggleLocales = () => {
   // change to some real logic
-  const locales = availableLocales
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
-}
+  const locales = availableLocales;
+  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
+};
 </script>
 
 <template>
@@ -17,12 +17,20 @@ const toggleLocales = () => {
       <carbon-campsite />
     </router-link>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_dark')" @click="toggleDark">
+    <a
+      class="icon-btn mx-2"
+      :title="t('button.toggle_dark')"
+      @click="toggleDark"
+    >
       <carbon-moon v-if="isDark" />
       <carbon-sun v-else />
     </a>
 
-    <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
+    <a
+      class="icon-btn mx-2"
+      :title="t('button.toggle_langs')"
+      @click="toggleLocales"
+    >
       <carbon-language />
     </a>
 
@@ -30,7 +38,13 @@ const toggleLocales = () => {
       <carbon-dicom-overlay />
     </router-link>
 
-    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
+    <a
+      class="icon-btn mx-2"
+      rel="noreferrer"
+      href="https://github.com/antfu/vitesse"
+      target="_blank"
+      title="GitHub"
+    >
       <carbon-logo-github />
     </a>
   </nav>
