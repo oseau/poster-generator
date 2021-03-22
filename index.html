@@ -1,37 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link
-      href="node_modules/tailwindcss/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link href="style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="my-node" class="relative text-center">
-      <div class="chinese pt-52 text-5xl">OK教育 小学英语 随堂晨读</div>
-      <div id="b" class="pt-36 text-9xl font-black leading-snug">
-        Look! <br />That's the playground.
-      </div>
-      <div class="pt-36 text-6xl font-bold">playground</div>
-      <div class="chinese pt-20 text-6xl font-medium" style="color: black">
-        操场
-      </div>
-      <div id="c" class="absolute bottom-0 left-0 right-0">
-        <div class="chinese text-3xl font-semibold my-5 mt-20">
-          985/211 海归硕士带你每天练英文
-        </div>
-        <div class="chinese text-3xl font-semibold my-5">联系老师进打卡群</div>
-        <div class="chinese text-3xl font-semibold my-5">184 3800 3188</div>
-        <div class="chinese text-2xl font-medium mt-10 mb-28">
-          《4 年级下册》 Page 2, Unit 1
-        </div>
-      </div>
-    </div>
-    <script src="node_modules/file-saver/dist/FileSaver.min.js"></script>
-    <script src="node_modules/dom-to-image/dist/dom-to-image.min.js"></script>
-    <script src="main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/pwa-192x192.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00aba9">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    (function() {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()
+  </script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>
