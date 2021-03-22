@@ -96,11 +96,11 @@ const generate = () => {
         <div id="c" class="absolute bottom-0 left-0 right-0 pt-20">
           <div
             v-for="l in footer.split('\n')"
-            class="chinese text-3xl font-semibold my-5"
+            class="chinese text-4xl font-semibold my-5"
           >
             {{ l }}
           </div>
-          <div class="chinese text-2xl font-medium mt-10 mb-28">
+          <div class="chinese text-3xl font-medium mt-10 mb-28">
             {{ pager }}
           </div>
         </div>
