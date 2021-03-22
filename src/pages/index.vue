@@ -4,8 +4,9 @@ import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
 
 const top = ref("OK教育 小学英语 随堂晨读");
-const content = ref(`Look!
-That's the playground.`);
+const content = ref(`《4 年级下册》
+Page 2
+Unit 1`);
 const note = ref("");
 const detail = ref("");
 const footer = ref(`985/211 海归硕士带你每天练英文
