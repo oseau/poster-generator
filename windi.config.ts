@@ -6,6 +6,7 @@ export default defineConfig({
   darkMode: 'class',
   plugins: [
     typography(),
+    require('windicss/plugin/forms'),
   ],
   theme: {
     extend: {

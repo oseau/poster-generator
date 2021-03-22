@@ -1,6 +1,8 @@
 dependencies:
   '@vueuse/core': 4.4.1_vue@3.0.7
   '@vueuse/head': 0.5.1_vue@3.0.7
+  dom-to-image: 2.6.0
+  file-saver: 2.0.5
   nprogress: 0.2.0
   prism-theme-vars: 0.2.0
   vue: 3.0.7
@@ -2364,6 +2366,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-n6kZFH/KlCrqs/1GHMOd5i2fd/beQHuehKdWvNNffbGHTr/almdhuVvTVFb3V7fglz+nC50fFusu3lY33h12pA==
+  /dom-to-image/2.6.0:
+    dev: false
+    resolution:
+      integrity: sha1-ilA2CAiMh7HCL5A0rgMuGJiVWGc=
   /domelementtype/2.1.0:
     dev: true
     resolution:
@@ -2994,6 +3000,10 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
+  /file-saver/2.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==
   /fill-range/7.0.1:
     dependencies:
       to-regex-range: 5.0.1
@@ -6190,7 +6200,9 @@ specifiers:
   '@vueuse/core': ^4.4.1
   '@vueuse/head': ^0.5.1
   cross-env: ^7.0.3
+  dom-to-image: ^2.6.0
   eslint: ^7.22.0
+  file-saver: ^2.0.5
   https-localhost: ^4.6.4
   markdown-it-prism: ^2.1.6
   nprogress: ^0.2.0

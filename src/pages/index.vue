@@ -1,56 +1,100 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
+import { ref } from "vue";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 
-const name = ref('')
+const top = ref("OK教育 小学英语 随堂晨读");
+const content = ref(`Look!
+That's the playground.`);
+const note = ref("");
+const detail = ref("");
+const footer = ref(`985/211 海归硕士带你每天练英文
+联系老师进打卡群
+184 3800 3188`);
+const pager = ref("《4 年级下册》 Page 2, Unit 1");
 
-const router = useRouter()
-const go = () => {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
-
-const { t } = useI18n()
+const generate = () => {
+  domtoimage.toBlob(document.getElementById("my-node")).then(function (blob) {
+    saveAs(blob, "ok-morning.png");
+  });
+};
 </script>
 
 <template>
-  <div>
-    <p class="text-4xl">
-      <carbon-campsite class="inline-block" />
-    </p>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em class="text-sm opacity-75">{{ t('intro.desc') }}</em>
-    </p>
-
-    <div class="py-4" />
-
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      autocomplete="false"
-      class="px-4 py-2 text-sm text-center bg-transparent border border-gray-200 rounded outline-none active:outline-none dark:border-gray-700"
-      style="width: 250px"
-      @keydown.enter="go"
+  <div class="antialiased text-gray-900 px-6">
+    <div class="mt-8 max-w-md">
+      <div class="grid grid-cols-1 gap-6">
+        <label class="block">
+          <span class="text-gray-700">top</span>
+          <input
+            type="text"
+            class="mt-1 block w-full"
+            placeholder="OK教育 小学英语 随堂晨读"
+            v-model="top"
+          />
+        </label>
+        <label class="block">
+          <span class="text-gray-700">content</span>
+          <textarea
+            class="mt-1 block w-full"
+            rows="3"
+            placeholder="内容"
+            v-model="content"
+          ></textarea>
+        </label>
+        <label class="block">
+          <span class="text-gray-700">note</span>
+          <input type="text" class="mt-1 block w-full" v-model="note" />
+        </label>
+        <label class="block">
+          <span class="text-gray-700">detail</span>
+          <textarea
+            class="mt-1 block w-full"
+            rows="3"
+            v-model="detail"
+          ></textarea>
+        </label>
+        <label class="block">
+          <span class="text-gray-700">footer</span>
+          <textarea
+            class="mt-1 block w-full"
+            rows="3"
+            v-model="footer"
+          ></textarea>
+        </label>
+        <label class="block">
+          <span class="text-gray-700">pager</span>
+          <input type="text" class="mt-1 block w-full" v-model="pager" />
+        </label>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="mt-10 py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md focus:outline-none"
+      @click="generate"
     >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
-    <div>
-      <button
-        class="m-3 text-sm btn"
-        :disabled="!name"
-        @click="go"
+      Button
+    </button>
+  </div>
+  <div id="my-node" class="relative text-center mt-20">
+    <div class="chinese pt-52 text-5xl">{{ top }}</div>
+    <div id="b" class="pt-36 text-9xl font-black leading-snug">
+      {{ content }}
+    </div>
+    <div class="pt-36 text-6xl font-bold">{{ note }}</div>
+    <div class="chinese pt-20 text-6xl font-medium" style="color: black">
+      {{ detail }}
+    </div>
+    <div id="c" class="absolute bottom-0 left-0 right-0 pt-20">
+      <div
+        v-for="l in footer.split('\n')"
+        class="chinese text-3xl font-semibold my-5"
       >
-        {{ t('button.go') }}
-      </button>
+        {{ l }}
+      </div>
+      <div class="chinese text-2xl font-medium mt-10 mb-28">
+        {{ pager }}
+      </div>
     </div>
   </div>
 </template>
