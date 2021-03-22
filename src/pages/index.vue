@@ -86,14 +86,14 @@ const generate = () => {
     >
       <div id="my-node" class="h-screen relative text-center">
         <div class="chinese pt-52 text-5xl">{{ top }}</div>
-        <div id="b" class="pt-36 text-9xl font-black leading-snug">
+        <div id="content" class="pt-36 text-9xl font-black leading-snug">
           {{ content }}
         </div>
         <div class="pt-36 text-6xl font-bold">{{ note }}</div>
         <div class="chinese pt-20 text-6xl font-medium" style="color: black">
           {{ detail }}
         </div>
-        <div id="c" class="absolute bottom-0 left-0 right-0 pt-20">
+        <div id="footer" class="absolute bottom-0 left-0 right-0 pt-20">
           <div
             v-for="l in footer.split('\n')"
             class="chinese text-4xl font-semibold my-5"

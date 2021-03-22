@@ -9,11 +9,12 @@
     "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
   letter-spacing: 0.2em;
 }
-#b {
+#content {
   color: #f4a261;
   font-family: "League Spartan";
   white-space: pre-wrap;
+  text-rendering: geometricprecision;
 }
-#c {
+#footer {
   background-color: #264653;
 }
