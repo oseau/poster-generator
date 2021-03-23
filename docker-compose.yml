@@ -1,0 +1,48 @@
+version: '3.7'
+
+x-default-opts: &default-opts
+  logging:
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  poster_generator:
+    <<: *default-opts
+    image: nginx:alpine
+    container_name: poster_generator
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./dist:/usr/share/nginx/html
+    networks:
+      - proxy
+    labels:
+      # Traefik label
+      - "traefik.enable=true"
+
+      # Asociates router with your specific domain or subdomain and websecure (https)
+      - "traefik.http.routers.poster_generator.rule=Host(`poster.tttwonder.com`)"
+      - "traefik.http.routers.poster_generator.entrypoints=websecure"
+
+      # Enables tls
+      # If theres is no cert for the domain or subdomain traefik creates it and save it to json in shared volume
+      # If any cert is to be expired, traefik creates a new one too
+      - "traefik.http.routers.poster_generator.tls=true"
+
+      # Asociation with resolver (see static.yml file)
+      - "traefik.http.routers.poster_generator.tls.certresolver=resolver"
+
+      # add security middleware
+      - "traefik.http.routers.poster_generator.middlewares=security-headers"
+
+      # Set default options (see dynamic.yaml for this)
+      - "traefik.http.routers.poster_generator.tls.options=default"
+
+      - "traefik.http.routers.poster_generator.middlewares=poster_generator-auth"
+      # Use [ echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g ] to generate new password
+      - "traefik.http.middlewares.poster_generator-auth.basicauth.users=ok:$$apr1$$gzhA.WCD$$boJqqMZtCyc5gSnkY3Jul0"
+
+networks:
+  proxy:
+    external: true
