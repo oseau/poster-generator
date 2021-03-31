@@ -399,3 +399,5 @@ pip-selfcheck.json
 dist
 dist-ssr
 node_modules
+# intellij stuff
+.idea/
