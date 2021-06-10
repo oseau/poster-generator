@@ -50,7 +50,7 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 ### UI Frameworks
 
 - [Windi CSS](https://github.com/windicss/windicss) (On-demand [TailwindCSS](https://tailwindcss.com/)) - lighter and faster, with a bundle additional features!
-  - [Windi CSS Typography](https://windicss.netlify.app/guide/plugins.html#typography) - similar to [Tailwind CSS Typography](https://github.com/tailwindlabs/tailwindcss-typograph) but for Windi CSS
+  - [Windi CSS Typography](https://windicss.org/plugins/official/typography.html) - similar to [Tailwind CSS Typography](https://github.com/tailwindlabs/tailwindcss-typography) but for Windi CSS
 
 ### Icons
 
@@ -99,6 +99,7 @@ As this template is strongly opinionated, the following provides a curated list 
 - [vitesse-addons](https://github.com/JohnCampionJr/vitesse-addons) by [@johncampionjr](https://github.com/johncampionjr) - additional options for integrations, including [Prettier](https://prettier.io) and [Storybook](https://storybook.js.org)
 - [vitesse-ssr-template](https://github.com/frandiox/vitesse-ssr-template) by [@frandiox](https://github.com/frandiox) - Vitesse with SSR
 - [vitesse-nuxt](https://github.com/antfu/vitesse-nuxt) - Vitesse for Nuxt 2 (expiremental)
+- [vitespa](https://github.com/ctholho/vitespa) - Like Vitesse but without SSG/SSR
 
 ## Try it now!
 

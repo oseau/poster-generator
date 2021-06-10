@@ -8,6 +8,7 @@ export default defineConfig({
     typography(),
     require('windicss/plugin/forms'),
   ],
+  attributify: true,
   theme: {
     extend: {
       typography: {
